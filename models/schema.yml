@@ -2,8 +2,10 @@ version: 2
 
 models:
   - name: dim_sensor
+    description: Dimenstion table for sensor.
     columns:
       - name: sensor_id
+        description: Unique identifier for each sensor.
         tests:
           - unique
 
