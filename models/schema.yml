@@ -36,7 +36,9 @@ models:
         tests: 
           - positive_value
 
+seeds:
   - name: dim_date
+    description: '{{doc("dim_data_doc")}}'
     columns:
       - name: day_name
         tests:
