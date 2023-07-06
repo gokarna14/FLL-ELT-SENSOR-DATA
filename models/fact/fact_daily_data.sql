@@ -1,3 +1,9 @@
+{{
+  config(
+    materialized = 'table',
+    )
+}}
+
 WITH QHD AS (
     SELECT * FROM {{ref('fact_quarter_hourly_data')}}
 )

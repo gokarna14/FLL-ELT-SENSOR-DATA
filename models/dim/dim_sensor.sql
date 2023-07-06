@@ -12,7 +12,8 @@ SELECT
         ORDER BY store.STORE_ID
     ) SENSOR_ID,
     store.STORE_ID,
-    src.ENTRANCE_NAME
+    src.ENTRANCE_NAME,
+    TO_DATE('2020-01-01', 'YYYY-MM-DD') AS updated_at
 FROM src_sensor_data src
 INNER JOIN DIM_STORE store 
 ON src.STORE_NUMBER = store.STORE_NUMBER
