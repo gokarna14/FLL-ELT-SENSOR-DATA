@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: dim_sensor
+    columns:
+      - name: sensor_id
+        tests:
+          - unique
+          - not_null
+
+      - name: store_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_store')
+              field: store_id
+  - name: fact_daily_data
+    columns:
+      - name: store_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_store')
+              field: store_id
+      - name: sensor_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_sensor')
+              field: sensor_id
+  - name: dim_date
+    columns:
+      - name: day_name
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
