@@ -39,7 +39,7 @@ models:
 seeds:
   - name: dim_date
     description: '{{doc("dim_data_doc")}}'
-    columns:
+     columns:
       - name: day_name
         tests:
           - accepted_values:
