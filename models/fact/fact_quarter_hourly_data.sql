@@ -9,6 +9,7 @@ WITH src_key_reference AS (
     SELECT * FROM {{ref('src_key_referenced')}}
 )
 SELECT
+    {{dbt_utils.surrogate_key(['Date_Key', 'Time_Key', 'Sensor_ID'])}} as quarter_hourly_data_id,
     *
 FROM src_key_referenced
 

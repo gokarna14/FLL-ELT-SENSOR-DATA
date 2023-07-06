@@ -1,6 +1,6 @@
 {{
   config(
-    materialized = 'table',
+    materialized = 'incremental',
     )
 }}
 
@@ -8,6 +8,7 @@ WITH QHD AS (
     SELECT * FROM {{ref('fact_quarter_hourly_data')}}
 )
 SELECT
+    {{dbt_utils.surrogate_key(['Date_Key', 'Sensor_ID'])}} AS Daily_Data_ID,
     DATE_KEY,
     STORE_ID,
     SENSOR_ID,

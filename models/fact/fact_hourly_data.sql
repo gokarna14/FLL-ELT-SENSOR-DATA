@@ -22,6 +22,7 @@ SELECT
 FROM qhd
 )
 SELECT 
+    {{dbt_utils.surrogate_key(['cte.Date_Key', 'dht.Time_Key', 'cte.Sensor_ID'])}} AS hourly_data_id,
     CTE.DATE_KEY,
     dht.TIME_KEY,
     CTE.STORE_ID,
