@@ -1,0 +1,8 @@
+version: 2
+
+sourses:
+  - name: sensor_data
+    schema: raw
+    tabless:
+      - name : RAW_DATA
+        identifier: TRAFFIC_DATA

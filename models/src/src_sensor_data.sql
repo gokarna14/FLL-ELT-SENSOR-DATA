@@ -3,7 +3,9 @@
 )}}
 WITH raw_traffic_data
 AS(
-    SELECT * FROM RAW.TRAFFIC_DATA
+    -- SELECT * FROM RAW.TRAFFIC_DATA
+    SELECT * FROM {{source('sensor_data', 'RAW_DATA')}}
+
 )
 SELECT
     DATE_ AS TRAFFIC_DATE,
