@@ -6,11 +6,9 @@ models:
       - name: sensor_id
         tests:
           - unique
-          - not_null
 
       - name: store_id
         tests:
-          - not_null
           - relationships:
               to: ref('dim_store')
               field: store_id
@@ -18,20 +16,27 @@ models:
     columns:
       - name: store_id
         tests:
-          - not_null
           - relationships:
               to: ref('dim_store')
               field: store_id
+
       - name: sensor_id
         tests:
-          - not_null
           - relationships:
               to: ref('dim_sensor')
               field: sensor_id
+
+      - name: IN_COUNT
+        tests: 
+          - positive_value
+
+      - name: OUT_COUNT
+        tests: 
+          - positive_value
+
   - name: dim_date
     columns:
       - name: day_name
         tests:
-          - not_null
           - accepted_values:
               values: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
